@@ -94,11 +94,6 @@
                     "principalIdDisplayName": "SOC-WorkbookReader"                    
                 },
 				{ 
-                    "principalId": "a9f4967c-5ec5-455d-a077-087e23ceee4f", 
-                    "roleDefinitionId": "66bb4e9e-b016-4a94-8249-4c0511c2be84",
-                    "principalIdDisplayName": "SOC-WorkbookContributor"                    
-                },
-				{ 
                     "principalId": "4de64170-127f-4e36-833f-bde0f934980b", 
                     "roleDefinitionId": "a4b10055-b0c7-44c2-b00f-c7b5b3550cf7",
                     "principalIdDisplayName": "SOC-SupportRequestContributor"                    

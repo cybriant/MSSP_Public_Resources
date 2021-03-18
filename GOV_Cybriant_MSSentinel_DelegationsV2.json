@@ -111,11 +111,6 @@
                     "principalIdDisplayName": "GOV-SOC-WorkbookReader"                    
                 },
 				{ 
-                    "principalId": "8e928b78-a5e9-4529-8424-7012cf33bedd", 
-                    "roleDefinitionId": "66bb4e9e-b016-4a94-8249-4c0511c2be84",
-                    "principalIdDisplayName": "GOV-SOC-WorkbookContributor"                    
-                },
-				{ 
                     "principalId": "3ec4f755-668e-482a-adf6-fa780c937b84", 
                     "roleDefinitionId": "a4b10055-b0c7-44c2-b00f-c7b5b3550cf7",
                     "principalIdDisplayName": "GOV-SOC-SupportRequestContributor"                    

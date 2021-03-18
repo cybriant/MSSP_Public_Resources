@@ -1,0 +1,164 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mspOfferName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify a unique name for your offer"
+            },
+            "defaultValue": "Cybriant Managed Sentinel Services"
+
+        },
+        "mspOfferDescription": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Managed Service Provider offering"
+            },
+            "defaultValue": "The Cybriant Managed Sentinel Service provides the customer with a 24/7 Security Operations Center (SOC).  The SOC will analyze, triage, and alert on attacks on the customer infrastructure.  Additionally, the SOC will perform hunting services when possible when zero day attacks or other vulnerabilities surface."
+        },
+        "managedByTenantId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the tenant id of the Managed Service Provider"
+            },
+            "defaultValue": "1a759eb3-d3a8-4dad-b8a9-d9dc830dff11"
+        },
+        "authorizations": {
+            "type": "array",
+            "metadata": {
+                "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
+            },
+            "defaultValue": [
+                { 
+                    "principalId": "cd139b02-f130-42bc-9ad4-7fe407f936f9", 
+                    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
+                    "principalIdDisplayName": "SOC-MSDeleteRole" 
+                }, 
+                { 
+                    "principalId": "97bbe084-453b-4dee-8ef9-668b94b64929", 
+                    "roleDefinitionId": "8d289c81-5878-46d4-8554-54e1e3d8b5cb",
+                    "principalIdDisplayName": "SOC-SentinelReader"
+                },
+				{ 
+                    "principalId": "b004fd75-2d56-4845-851a-e926995db485", 
+                    "roleDefinitionId": "3e150937-b8fe-4cfb-8069-0eaf05ecd056",
+                    "principalIdDisplayName": "SOC-SentinelResponder"                    
+                },
+				{ 
+                    "principalId": "21252252-da65-4e8e-8a87-e5e949e01ad1", 
+                    "roleDefinitionId": "ab8e14d6-4a74-4a29-9ba8-549422addade",
+                    "principalIdDisplayName": "SOC-SentinelContributor"                    
+                },
+				{ 
+                    "principalId": "3acdc42d-2dac-4b4b-aa21-cb07fe55c9c5", 
+                    "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+                    "principalIdDisplayName": "SOC-SentinelAutomationContributor"                    
+                },
+				{ 
+                    "principalId": "82e74d12-43a0-4130-819a-b377c8de3682", 
+                    "roleDefinitionId": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+                    "principalIdDisplayName": "SOC-LogAnalyticsReader"                    
+                },
+				{ 
+                    "principalId": "9eec82f3-4bd4-4b7a-aff4-e3353915f3db", 
+                    "roleDefinitionId": "515c2055-d9d4-4321-b1b9-bd0c9a0f79fe",
+                    "principalIdDisplayName": "SOC-LogAnalyticsContributor"                    
+                },
+				{ 
+                    "principalId": "15767da6-fe5a-45bf-a3c5-d717d751f2f7", 
+                    "roleDefinitionId": "c7393b34-138c-406f-901b-d8cf2b17e6ae",
+                    "principalIdDisplayName": "SOC-LogicAppContributor"                    
+                },
+				{ 
+                    "principalId": "b3a48634-f439-4b55-8896-5e9b60d77300", 
+                    "roleDefinitionId": "87a39d53-fc1b-424a-814c-f7e04687dc9e",
+                    "principalIdDisplayName": "SOC-LogicAppOperator"                    
+                },
+				{ 
+                    "principalId": "92b63c7c-e8f0-43dc-9250-df6422b1ee3e", 
+                    "roleDefinitionId": "39bc4728-0917-49c7-9d2c-d95423bc2eb4",
+                    "principalIdDisplayName": "SOC-SecurityReader"                    
+                },
+				{ 
+                    "principalId": "72c46894-4a39-4879-bf00-3f1729467c2b", 
+                    "roleDefinitionId": "4a9ae827-6dc8-4573-8ac7-8239d42aa03f",
+                    "principalIdDisplayName": "SOC-SecurityAssessmentContributor"                    
+                },
+				{ 
+                    "principalId": "09289a79-4646-4b46-8baf-7f42b86e860f", 
+                    "roleDefinitionId": "fb1c8493-542b-48eb-b624-b4c8fea62acd",
+                    "principalIdDisplayName": "SOC-SecurityAdmin"                    
+                },
+				{ 
+                    "principalId": "7c34917e-1eb1-430c-b3b6-3bdd4c3bc56a", 
+                    "roleDefinitionId": "4d97b98b-1d4f-4787-a291-c67834d212e7",
+                    "principalIdDisplayName": "SOC-MonitoringReader"                    
+                },
+				{ 
+                    "principalId": "f37401f5-3706-4b23-bc69-f966aa387911", 
+                    "roleDefinitionId": "5d28c62d-5b37-4476-8438-e587778df237",
+                    "principalIdDisplayName": "SOC-MonitoringContributor"                    
+                },
+				{ 
+                    "principalId": "8a43b49e-b317-48f8-8402-566b4638c913", 
+                    "roleDefinitionId": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
+                    "principalIdDisplayName": "SOC-MonitoringMetricsPublisher"                    
+                },
+				{ 
+                    "principalId": "e30c5843-33bd-4039-a47c-f725b84283b4", 
+                    "roleDefinitionId": "e8ddcd69-c73f-4f9f-9844-4100522f16ad",
+                    "principalIdDisplayName": "SOC-WorkbookReader"                    
+                },
+				{ 
+                    "principalId": "a9f4967c-5ec5-455d-a077-087e23ceee4f", 
+                    "roleDefinitionId": "66bb4e9e-b016-4a94-8249-4c0511c2be84",
+                    "principalIdDisplayName": "SOC-WorkbookContributor"                    
+                },
+				{ 
+                    "principalId": "4de64170-127f-4e36-833f-bde0f934980b", 
+                    "roleDefinitionId": "a4b10055-b0c7-44c2-b00f-c7b5b3550cf7",
+                    "principalIdDisplayName": "SOC-SupportRequestContributor"                    
+                }   
+            ]
+        }              
+    },
+    "variables": {
+        "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+        "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.ManagedServices/registrationDefinitions",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('mspRegistrationName')]",
+            "properties": {
+                "registrationDefinitionName": "[parameters('mspOfferName')]",
+                "description": "[parameters('mspOfferDescription')]",
+                "managedByTenantId": "[parameters('managedByTenantId')]",
+                "authorizations": "[parameters('authorizations')]"
+            }
+        },
+        {
+            "type": "Microsoft.ManagedServices/registrationAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('mspAssignmentName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            ],
+            "properties": {
+                "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            }
+        }
+    ],
+    "outputs": {
+        "mspOfferName": {
+            "type": "string",
+            "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+        },
+        "authorizations": {
+            "type": "array",
+            "value": "[parameters('authorizations')]"
+        }
+    }
+}
